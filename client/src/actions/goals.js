@@ -10,3 +10,12 @@ export const getGoals = () => async (dispatch) => {
         console.log(error);
     }
 }
+
+export const createGoal = (goal) => async (dispatch) => {
+    try {
+        const { data } = await api.createGoal(goal);
+        dispatch({ type: CREATE, payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+};

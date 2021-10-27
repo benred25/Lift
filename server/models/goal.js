@@ -4,7 +4,10 @@ const goalSchema = mongoose.Schema({
     exercise: String,
     reps: Number,
     sets: Number,
-    completed: Boolean,
+    completed: {
+        type: Boolean,
+        default: false,
+    },
     createdAt: {
         type: Date,
         default: new Date(),

@@ -14,6 +14,18 @@ export const getGoals = async (req, res) => {
     }
 }
 
+export const createGoal = async (req, res) => {
+    const { exercise, reps, sets, completed, createdAt } = req.body;
+    const newGoal = new Goal({ exercise, reps, sets, completed, createdAt });
+
+    try {
+        await newGoal.save();
+        res.status(201).json(newGoal);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
 
 
 

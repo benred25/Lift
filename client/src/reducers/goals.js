@@ -4,6 +4,8 @@ export default (goals = [], action) => {
     switch (action.type) {
         case FETCH_ALL:
             return action.payload;
+        case CREATE:
+            return [...goals, action.payload];
         default:
             return goals;
     }
