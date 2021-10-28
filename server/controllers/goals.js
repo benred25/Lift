@@ -15,8 +15,8 @@ export const getGoals = async (req, res) => {
 }
 
 export const createGoal = async (req, res) => {
-    const { exercise, reps, sets, completed, createdAt } = req.body;
-    const newGoal = new Goal({ exercise, reps, sets, completed, createdAt });
+    const { exercise, reps, sets, weight, completed, createdAt } = req.body;
+    const newGoal = new Goal({ exercise, reps, sets, weight, completed, createdAt });
 
     try {
         await newGoal.save();

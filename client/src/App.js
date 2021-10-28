@@ -16,6 +16,11 @@ const App = () => {
             <AppBar className={classes.appBar} position="static" color="inherit">
                 <Typography className={classes.heading} variant="h2" align="center">Lift</Typography>
             </AppBar>
+            <Grow in>
+                <Container>
+                    <Goals />
+                </Container>
+            </Grow>
         </Container>
     );
 };
