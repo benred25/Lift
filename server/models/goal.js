@@ -4,6 +4,7 @@ const goalSchema = mongoose.Schema({
     exercise: String,
     reps: Number,
     sets: Number,
+    weight: Number,
     completed: {
         type: Boolean,
         default: false,
