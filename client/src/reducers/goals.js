@@ -10,6 +10,8 @@ export default (goals = [], action) => {
             return goals.map((goal) => (goal._id === action.payload._id ? action.payload : goal));
         case DELETE:
             return goals.filter((goal) => goal._id !== action.payload);
+        case UPDATE:
+            return goals.map((goal) => (goal._id === action.payload._id ? action.payload : goal));
         default:
             return goals;
     }

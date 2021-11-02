@@ -3,21 +3,31 @@ import { TextField, Button, Typography, Paper, Select, FormControl, InputLabel, 
 import { useDispatch, useSelector } from "react-redux";
 
 import useStyles from './styles';
-import { createGoal } from '../../../actions/goals';
+import {createGoal, updateGoal} from '../../../actions/goals';
 
-const GoalForm = () => {
+const GoalForm = ({ currentId, setCurrentId }) => {
     const [goalData, setGoalData] = useState({ exercise: '', sets: '', reps: '', weight: '' });
+    const goal = useSelector((state) => (currentId ? state.goals.find((message) => message._id === currentId) : null));
     const dispatch = useDispatch();
     const classes = useStyles();
 
+    useEffect(() => {
+        if (goal) setGoalData(goal);
+    }, [goal]);
+
     const clear = () => {
+        setCurrentId(0);
         setGoalData({ exercise: '', sets: '', reps: '', weight: '' });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        dispatch(createGoal(goalData));
+        if (currentId === 0) {
+            dispatch(createGoal(goalData));
+        } else {
+            dispatch(updateGoal(currentId, goalData));
+        }
         clear();
     };
 

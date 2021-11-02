@@ -37,3 +37,12 @@ export const deleteGoal = (id) => async (dispatch) => {
         console.log(error);
     }
 };
+
+export const updateGoal = (id, goal) => async (dispatch) => {
+    try {
+        const { data } = await api.updateGoal(id, goal);
+        dispatch({ type: UPDATE, payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+};

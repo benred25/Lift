@@ -25,7 +25,7 @@ const App = () => {
             <Grow in>
                 <Container>
                     <Grid item xs={4}>
-                        <Goals setCurrnetId={setCurrentId} />
+                        <Goals setCurrentId={setCurrentId} currentId={currentId} />
                     </Grid>
                 </Container>
             </Grow>

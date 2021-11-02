@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 import {completeGoal, deleteGoal} from "../../../actions/goals";
 
-const Goal = ({ goal }) => {
+const Goal = ({ goal, setCurrentId }) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -17,7 +17,7 @@ const Goal = ({ goal }) => {
             <div className={classes.details}>
                 <Typography variant="body2">{moment(goal.createdAt).fromNow()}</Typography>
                 <Typography variant="h5">{goal.exercise}</Typography>
-                <Button style={{ color: 'white' }} size="small" onClick={() => {}}><MoreHoriz fontSize="default" /></Button>
+                <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(goal._id)}><MoreHoriz fontSize="default" /></Button>
             </div>
             <div className={classes.details}>
                 <Typography variant="body2" color="textSecondary" component="h2">Sets: {goal.sets}</Typography>
