@@ -1,2 +1,2 @@
 # Lift
-app for cmpt 412
+A web app for gym goers
