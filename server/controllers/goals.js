@@ -33,6 +33,13 @@ export const completeGoal = async (req, res) => {
     res.json(updatedGoal);
 }
 
+export const deleteGoal = async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No goal with id: ${id}`);
+    await Goal.findByIdAndRemove(id);
+    res.json({ message: "Goal deleted successfully." });
+};
+
 
 
 

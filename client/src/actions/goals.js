@@ -28,3 +28,12 @@ export const completeGoal = (id) => async (dispatch) => {
         console.log(error);
     }
 };
+
+export const deleteGoal = (id) => async (dispatch) => {
+    try {
+        await api.deleteGoal(id);
+        dispatch({ type: DELETE, payload: id });
+    } catch (error) {
+        console.log(error);
+    }
+};

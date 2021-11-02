@@ -6,7 +6,7 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
 import useStyles from './styles';
-import {completeGoal} from "../../../actions/goals";
+import {completeGoal, deleteGoal} from "../../../actions/goals";
 
 const Goal = ({ goal }) => {
     const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const Goal = ({ goal }) => {
                 <Typography variant="body2" color="textSecondary" component="h2">Weight: {goal.weight}lbs</Typography>
             </div>
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={() => {}}><DeleteIcon fontSize="small" />&nbsp;Delete</Button>
+                <Button size="small" color="secondary" onClick={() => dispatch(deleteGoal(goal._id))}><DeleteIcon fontSize="small" />&nbsp;Delete</Button>
                 <Typography variant="body2" color="primary" component="h2">Complete<Checkbox onClick={() => dispatch(completeGoal(goal._id))}/></Typography>
             </CardActions>
         </Card>
