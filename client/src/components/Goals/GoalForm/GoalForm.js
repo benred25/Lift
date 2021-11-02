@@ -34,7 +34,7 @@ const GoalForm = ({ currentId, setCurrentId }) => {
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">Create a Goal</Typography>
+                <Typography variant="h6">{currentId ? 'Edit your Goal' : 'Create a Goal'}</Typography>
                 <TextField name="exercise" variant="outlined" label="Exercise" fullWidth value={goalData.exercise} onChange={(e) => setGoalData({ ...goalData, exercise: e.target.value })} />
                 <TextField name="sets" variant="outlined" label="Sets" fullWidth inputProps={{ type: 'number'}} value={goalData.sets} onChange={(e) => setGoalData({ ...goalData, sets: e.target.value })} />
                 <TextField name="reps" variant="outlined" label="Reps" fullWidth inputProps={{ type: 'number'}} value={goalData.reps} onChange={(e) => setGoalData({ ...goalData, reps: e.target.value })} />
