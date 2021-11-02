@@ -9,11 +9,9 @@ const goalSchema = mongoose.Schema({
         type: Boolean,
         default: false,
     },
-    createdAt: {
-        type: Date,
-        default: new Date(),
     },
-})
+    { timestamps: true }
+);
 
 var Goal = mongoose.model('Goal', goalSchema);
 
