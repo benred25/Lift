@@ -26,6 +26,13 @@ export const createGoal = async (req, res) => {
     }
 }
 
+export const completeGoal = async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No goal with id: ${id}`);
+    const updatedGoal = await Goal.findByIdAndUpdate(id, { completed: true }, {new: true });
+    res.json(updatedGoal);
+}
+
 
 
 
