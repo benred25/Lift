@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import goalRoutes from './routes/goals.js';
+import liftRoutes from './routes/lifts.js';
 
 const app = express();
 dotenv.config();
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use('/goals', goalRoutes);
+app.use('/lifts', liftRoutes);
 
 const PORT = process.env.PORT;
 
