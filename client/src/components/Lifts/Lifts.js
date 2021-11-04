@@ -8,92 +8,34 @@ import useStyles from './styles';
 const Lifts = ({ currentId, setCurrentId }) => {
     const lifts = useSelector((state) => state.lifts);
     const classes = useStyles();
-    console.log("lifts");
-    console.log(lifts);
+    const liftTypes = ["Bench Press", "Deadlift", "Squat", "Incline Bench"]
+
     return (
         <Stack spacing={2} container alignItems="stretch">
             <LiftForm setCurrentId={setCurrentId} currentId={currentId} />
             <TableContainer>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Bench Press</TableCell>
-                            <TableCell>Sets</TableCell>
-                            <TableCell>Reps</TableCell>
-                            <TableCell>Weight (lbs)</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {lifts.filter(lift => lift.exercise === "Bench Press").map((lift) => (
+                {liftTypes.map((name) => (
+                    <Table>
+                        <TableHead>
                             <TableRow>
-                                <TableCell>{lift.createdAt}</TableCell>
-                                <TableCell>{lift.sets}</TableCell>
-                                <TableCell>{lift.reps}</TableCell>
-                                <TableCell>{lift.weight}</TableCell>
+                                <TableCell>{name}</TableCell>
+                                <TableCell>Sets</TableCell>
+                                <TableCell>Reps</TableCell>
+                                <TableCell>Weight (lbs)</TableCell>
                             </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Deadlift</TableCell>
-                            <TableCell>Sets</TableCell>
-                            <TableCell>Reps</TableCell>
-                            <TableCell>Weight (lbs)</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {lifts.filter(lift => lift.exercise === "Deadlift").map((lift) => (
-                            <TableRow>
-                                <TableCell>{lift.createdAt}</TableCell>
-                                <TableCell>{lift.sets}</TableCell>
-                                <TableCell>{lift.reps}</TableCell>
-                                <TableCell>{lift.weight}</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Squat</TableCell>
-                            <TableCell>Sets</TableCell>
-                            <TableCell>Reps</TableCell>
-                            <TableCell>Weight (lbs)</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {lifts.filter(lift => lift.exercise === "Squat").map((lift) => (
-                            <TableRow>
-                                <TableCell>{lift.createdAt}</TableCell>
-                                <TableCell>{lift.sets}</TableCell>
-                                <TableCell>{lift.reps}</TableCell>
-                                <TableCell>{lift.weight}</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Incline Bench</TableCell>
-                            <TableCell>Sets</TableCell>
-                            <TableCell>Reps</TableCell>
-                            <TableCell>Weight (lbs)</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {lifts.filter(lift => lift.exercise === "Incline Bench").map((lift) => (
-                            <TableRow>
-                                <TableCell>{lift.createdAt}</TableCell>
-                                <TableCell>{lift.sets}</TableCell>
-                                <TableCell>{lift.reps}</TableCell>
-                                <TableCell>{lift.weight}</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
+                        </TableHead>
+                        <TableBody>
+                            {lifts.filter(lift => lift.exercise === name).map((lift) => (
+                                <TableRow>
+                                    <TableCell>{lift.createdAt.slice(0,10)}</TableCell>
+                                    <TableCell>{lift.sets}</TableCell>
+                                    <TableCell>{lift.reps}</TableCell>
+                                    <TableCell>{lift.weight}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                ))}
             </TableContainer>
         </Stack>
     );
