@@ -14,6 +14,18 @@ export const getLifts = async (req, res) => {
     }
 }
 
+export const createLift = async (req, res) => {
+    const { exercise, reps, sets, weight } = req.body;
+    const newLift = new Lift({ exercise, reps, sets, weight });
+
+    try {
+        await newLift.save();
+        res.status(200).json(newLift);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
 
 
 

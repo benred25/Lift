@@ -1,16 +1,16 @@
-import { CREATE, UPDATE, DELETE, FETCH_ALL, COMPLETE } from "../constants/actionTypes";
+import { CREATE_GOAL, UPDATE_GOAL, DELETE_GOAL, FETCH_ALL_GOALS, COMPLETE_GOAL } from "../constants/actionTypes";
 
 export default (goals = [], action) => {
     switch (action.type) {
-        case FETCH_ALL:
+        case FETCH_ALL_GOALS:
             return action.payload;
-        case CREATE:
+        case CREATE_GOAL:
             return [...goals, action.payload];
-        case COMPLETE:
+        case COMPLETE_GOAL:
             return goals.map((goal) => (goal._id === action.payload._id ? action.payload : goal));
-        case DELETE:
+        case DELETE_GOAL:
             return goals.filter((goal) => goal._id !== action.payload);
-        case UPDATE:
+        case UPDATE_GOAL:
             return goals.map((goal) => (goal._id === action.payload._id ? action.payload : goal));
         default:
             return goals;

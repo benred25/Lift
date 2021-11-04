@@ -44,7 +44,6 @@ const GoalForm = ({ currentId, setCurrentId }) => {
                         <MenuItem value="Incline Bench">Incline Bench</MenuItem>
                     </Select>
                 </FormControl>
-                {/*<TextField name="exercise" variant="outlined" label="Exercise" fullWidth value={goalData.exercise} onChange={(e) => setGoalData({ ...goalData, exercise: e.target.value })} />*/}
                 <TextField name="sets" variant="outlined" label="Sets" fullWidth inputProps={{ type: 'number'}} value={goalData.sets} onChange={(e) => setGoalData({ ...goalData, sets: e.target.value })} />
                 <TextField name="reps" variant="outlined" label="Reps" fullWidth inputProps={{ type: 'number'}} value={goalData.reps} onChange={(e) => setGoalData({ ...goalData, reps: e.target.value })} />
                 <TextField name="weight" variant="outlined" label="Weight" fullWidth inputProps={{ type: 'number'}} value={goalData.weight} onChange={(e) => setGoalData({ ...goalData, weight: e.target.value })} />

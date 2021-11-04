@@ -10,7 +10,8 @@ import useStyles from './styles';
 const Goals = ({ currentId, setCurrentId }) => {
     const goals = useSelector((state) => state.goals);
     const classes = useStyles();
-
+    console.log("goals");
+    console.log(goals);
     return (
         <Stack spacing={2} container alignItems="stretch">
             <GoalForm setCurrentId={setCurrentId} currentId={currentId} />

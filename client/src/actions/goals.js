@@ -1,11 +1,11 @@
-import {CREATE, DELETE, UPDATE, FETCH_ALL, COMPLETE} from "../constants/actionTypes";
+import {CREATE_GOAL, DELETE_GOAL, UPDATE_GOAL, FETCH_ALL_GOALS, COMPLETE_GOAL} from "../constants/actionTypes";
 
 import * as api from '../api/index.js';
 
 export const getGoals = () => async (dispatch) => {
     try {
         const { data } = await api.fetchGoals();
-        dispatch({ type: FETCH_ALL, payload: data });
+        dispatch({ type: FETCH_ALL_GOALS, payload: data });
     } catch (error) {
         console.log(error);
     }
@@ -14,7 +14,7 @@ export const getGoals = () => async (dispatch) => {
 export const createGoal = (goal) => async (dispatch) => {
     try {
         const { data } = await api.createGoal(goal);
-        dispatch({ type: CREATE, payload: data });
+        dispatch({ type: CREATE_GOAL, payload: data });
     } catch (error) {
         console.log(error);
     }
@@ -23,7 +23,7 @@ export const createGoal = (goal) => async (dispatch) => {
 export const completeGoal = (id) => async (dispatch) => {
     try {
         const { data } = await api.completeGoal(id);
-        dispatch({ type: COMPLETE, payload: data });
+        dispatch({ type: COMPLETE_GOAL, payload: data });
     } catch (error) {
         console.log(error);
     }
@@ -32,7 +32,7 @@ export const completeGoal = (id) => async (dispatch) => {
 export const deleteGoal = (id) => async (dispatch) => {
     try {
         await api.deleteGoal(id);
-        dispatch({ type: DELETE, payload: id });
+        dispatch({ type: DELETE_GOAL, payload: id });
     } catch (error) {
         console.log(error);
     }
@@ -41,7 +41,7 @@ export const deleteGoal = (id) => async (dispatch) => {
 export const updateGoal = (id, goal) => async (dispatch) => {
     try {
         const { data } = await api.updateGoal(id, goal);
-        dispatch({ type: UPDATE, payload: data });
+        dispatch({ type: UPDATE_GOAL, payload: data });
     } catch (error) {
         console.log(error);
     }

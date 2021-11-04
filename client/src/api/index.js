@@ -10,3 +10,4 @@ export const deleteGoal = (id) => axios.delete(`${goalsUrl}/${id}`);
 export const updateGoal = (id, updatedGoal) => axios.patch(`${goalsUrl}/${id}`, updatedGoal);
 
 export const fetchLifts = () => axios.get(liftsUrl);
+export const createLift = (newLift) => axios.post(liftsUrl, newLift);
