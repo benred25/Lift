@@ -24,7 +24,7 @@ const Lifts = ({ currentId, setCurrentId }) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {lifts.map((lift) => (
+                        {lifts.filter(lift => lift.exercise === "Bench Press").map((lift) => (
                             <TableRow>
                                 <TableCell>{lift.createdAt}</TableCell>
                                 <TableCell>{lift.sets}</TableCell>
