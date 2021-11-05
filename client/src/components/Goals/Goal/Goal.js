@@ -6,18 +6,19 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
 import useStyles from './styles';
-import {completeGoal, deleteGoal} from "../../../actions/goals";
+import {completeGoal, deleteGoal, getGoals} from "../../../actions/goals";
 
 const Goal = ({ goal, setCurrentId }) => {
     const dispatch = useDispatch();
     const classes = useStyles();
+    const checkbox = !goal.completed ? <Checkbox onClick={() => dispatch(completeGoal(goal._id))}/> : <Checkbox disabled checked/>
 
     return (
         <Card className={classes.card}>
             <div className={classes.details}>
                 <Typography variant="body2">{moment(goal.createdAt).fromNow()}</Typography>
                 <Typography variant="h5">{goal.exercise}</Typography>
-                <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(goal._id)}><MoreHoriz fontSize="default" /></Button>
+                <Button style={{ color: 'black' }} size="small" onClick={() => setCurrentId(goal._id)}><MoreHoriz fontSize="default" /></Button>
             </div>
             <div className={classes.details}>
                 <Typography variant="body2" color="textSecondary" component="h2">Sets: {goal.sets}</Typography>
@@ -26,7 +27,7 @@ const Goal = ({ goal, setCurrentId }) => {
             </div>
             <CardActions className={classes.cardActions}>
                 <Button size="small" color="secondary" onClick={() => dispatch(deleteGoal(goal._id))}><DeleteIcon fontSize="small" />&nbsp;Delete</Button>
-                <Typography variant="body2" color="primary" component="h2">Complete<Checkbox onClick={() => dispatch(completeGoal(goal._id))}/></Typography>
+                <Typography variant="body2" color="primary" component="h2">Complete{checkbox}</Typography>
             </CardActions>
         </Card>
     )
