@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 import {deleteLift, getLifts} from "../../../actions/lifts";
 
-const LiftTable = ({ lifts, liftName, setCurrentId }) => {
+const LiftTable = ({ lifts, liftName, setCurrentId, setCurrentLiftType }) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -20,7 +20,7 @@ const LiftTable = ({ lifts, liftName, setCurrentId }) => {
                         <TableCell>Sets</TableCell>
                         <TableCell>Reps</TableCell>
                         <TableCell>Weight (lbs)</TableCell>
-                        <TableCell><Button variant="contained" color="primary">Graph</Button></TableCell>
+                        <TableCell><Button variant="contained" color="primary" onClick={() => setCurrentLiftType(liftName)}>Graph</Button></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody className={classes.tableBody}>

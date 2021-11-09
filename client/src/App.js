@@ -17,12 +17,13 @@ const App = () => {
     const classes = useStyles();
 
     useEffect(() => {
+        dispatch(getLifts());
+    }, [currentLiftId, dispatch]);
+
+    useEffect(() => {
         dispatch(getGoals());
     }, [currentGoalId, dispatch]);
 
-    useEffect(() => {
-        dispatch(getLifts());
-    }, [currentLiftId, dispatch]);
 
     return (
         <Container maxWidth="xl">
