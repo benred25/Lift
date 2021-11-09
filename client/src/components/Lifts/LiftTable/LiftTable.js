@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Button} from "@material-ui/core";
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import DeleteIcon from '@material-ui/icons/Delete';
+import BarChartOutlined from "@material-ui/icons/BarChartOutlined";
 import { useDispatch } from 'react-redux';
 
 import useStyles from './styles';
@@ -20,7 +21,7 @@ const LiftTable = ({ lifts, liftName, setCurrentId, setCurrentLiftType }) => {
                         <TableCell>Sets</TableCell>
                         <TableCell>Reps</TableCell>
                         <TableCell>Weight (lbs)</TableCell>
-                        <TableCell><Button variant="contained" color="primary" onClick={() => setCurrentLiftType(liftName)}>Graph</Button></TableCell>
+                        <TableCell><Button variant="contained" color="primary" onClick={() => setCurrentLiftType(liftName)}>Graph&nbsp;<BarChartOutlined/></Button></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody className={classes.tableBody}>

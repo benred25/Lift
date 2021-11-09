@@ -19,7 +19,6 @@ const LiftGraph = ({ lifts, liftName }) => {
                 <h3>{liftName} Data</h3>
             </div>
             <div>
-                <ResponsiveContainer>
                     <BarChart width={800} height={300} data={lifts} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                         <XAxis tick={{fill: "rgba(0,0,0,0)"}}/>
                         <YAxis tick={{fill: "#000000"}} yAxisId="reps" orientation="right" dataKey="reps"/>
@@ -30,7 +29,6 @@ const LiftGraph = ({ lifts, liftName }) => {
                         <Bar yAxisId="reps" dataKey="reps" fill="#088A08" />
                         <Bar yAxisId="weight" dataKey="weight" fill="#4B088A" />
                     </BarChart>
-                </ResponsiveContainer>
             </div>
         </div>
     )
