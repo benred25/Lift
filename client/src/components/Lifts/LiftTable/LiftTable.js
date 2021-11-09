@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Button} from "@material-ui/core";
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux';
 
 import useStyles from './styles';
-import {deleteLift} from "../../../actions/lifts";
+import {deleteLift, getLifts} from "../../../actions/lifts";
 
 const LiftTable = ({ lifts, liftName, setCurrentId }) => {
     const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const LiftTable = ({ lifts, liftName, setCurrentId }) => {
                             <TableCell>{lift.sets}</TableCell>
                             <TableCell>{lift.reps}</TableCell>
                             <TableCell>{lift.weight}</TableCell>
-                            <TableCell><Button variant="contained" color="secondary" size="small"><DeleteIcon fontSize="small"/>&nbsp;Delete</Button></TableCell>
+                            <TableCell><Button variant="contained" color="secondary" size="small" onClick={() => dispatch(deleteLift(lift._id))}><DeleteIcon fontSize="small"/>&nbsp;Delete</Button></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

@@ -26,6 +26,13 @@ export const createLift = async (req, res) => {
     }
 }
 
+export const deleteLift = async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No lift with id: ${id}`);
+    await Lift.findByIdAndRemove(id);
+    res.json({ message: "Lift deleted successfully." });
+};
+
 
 
 

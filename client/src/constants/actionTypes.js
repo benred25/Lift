@@ -6,3 +6,4 @@ export const COMPLETE_GOAL = 'COMPLETE_GOAL';
 
 export const CREATE_LIFT = 'CREATE_LIFT';
 export const FETCH_ALL_LIFTS = 'FETCH_ALL_LIFTS';
+export const DELETE_LIFT = 'DELETE_LIFT';
