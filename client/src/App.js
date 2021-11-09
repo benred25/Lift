@@ -32,14 +32,14 @@ const App = () => {
             </AppBar>
             <Grid container spacing={3} justifyContent="center">
                 <Grow in>
-                        <Grid item xs={3}>
-                            <Goals setCurrentId={setCurrentGoalId} currentId={currentGoalId} />
-                        </Grid>
+                    <Grid item xs={5}>
+                        <Lifts setCurrentId={setCurrentLiftId} currentId={currentLiftId} />
+                    </Grid>
                 </Grow>
                 <Grow in>
-                        <Grid item xs={5}>
-                            <Lifts setCurrentId={setCurrentLiftId} currentId={currentLiftId} />
-                        </Grid>
+                    <Grid item xs={3}>
+                        <Goals setCurrentId={setCurrentGoalId} currentId={currentGoalId} />
+                    </Grid>
                 </Grow>
             </Grid>
         </Container>
