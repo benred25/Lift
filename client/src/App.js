@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import Goals from './components/Goals/Goals';
 import Lifts from './components/Lifts/Lifts';
+import Friends from './components/Friends/Friends';
 import { getGoals } from "./actions/goals";
 import { getLifts } from "./actions/lifts";
 import useStyles from './styles';
@@ -39,6 +40,11 @@ const App = () => {
                 <Grow in>
                     <Grid item xs={3}>
                         <Goals setCurrentId={setCurrentGoalId} currentId={currentGoalId} />
+                    </Grid>
+                </Grow>
+                <Grow in>
+                    <Grid item xs={3}>
+                        <Friends />
                     </Grid>
                 </Grow>
             </Grid>
