@@ -37,7 +37,6 @@ const LiftForm = ({ currentId, setCurrentId }) => {
                         <MenuItem value="Bench Press">Bench Press</MenuItem>
                         <MenuItem value="Deadlift">Deadlift</MenuItem>
                         <MenuItem value="Squat">Squat</MenuItem>
-                        <MenuItem value="Incline Bench">Incline Bench</MenuItem>
                     </Select>
                 </FormControl>
                 <TextField name="sets" variant="outlined" label="Sets" fullWidth inputProps={{ type: 'number'}} value={liftData.sets} onChange={(e) => setLiftData({ ...liftData, sets: e.target.value })} />

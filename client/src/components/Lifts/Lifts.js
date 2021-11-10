@@ -11,7 +11,7 @@ import useStyles from './styles';
 const Lifts = ({ currentId, setCurrentId }) => {
     const lifts = useSelector((state) => state.lifts);
     const classes = useStyles();
-    const liftTypes = ["Bench Press", "Deadlift", "Squat", "Incline Bench"]
+    const liftTypes = ["Bench Press", "Deadlift", "Squat"];
     const [currentLiftType, setCurrentLiftType] = useState('Bench Press');
 
     return (
