@@ -17,10 +17,10 @@ const Lifts = ({ currentId, setCurrentId }) => {
     return (
         <Stack spacing={2} container alignItems="stretch">
             <LiftForm setCurrentId={setCurrentId} currentId={currentId} />
+            <LiftGraph lifts={lifts} liftName={currentLiftType}/>
             {liftTypes.map((name) => (
                 <LiftTable lifts={lifts} liftName={name} setCurrentLiftType={setCurrentLiftType}/>
             ))}
-            <LiftGraph lifts={lifts} liftName={currentLiftType}/>
         </Stack>
     );
 };

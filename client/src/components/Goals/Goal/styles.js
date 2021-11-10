@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, alpha } from '@material-ui/core/styles';
 
 export default makeStyles({
     media: {
@@ -20,6 +20,7 @@ export default makeStyles({
         borderRadius: '15px',
         height: '100%',
         position: 'relative',
+        backgroundColor: alpha('#A598AA', 0.9),
     },
     overlay: {
         position: 'absolute',

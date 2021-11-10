@@ -19,7 +19,7 @@ const LiftGraph = ({ lifts, liftName }) => {
                 <h3>{liftName} Data</h3>
             </div>
             <div>
-                    <BarChart width={800} height={300} data={lifts} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+                    <BarChart display="stretch" width={820} height={300} data={lifts} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                         <XAxis tick={{fill: "rgba(0,0,0,0)"}}/>
                         <YAxis tick={{fill: "#000000"}} yAxisId="reps" orientation="right" dataKey="reps"/>
                         <YAxis tick={{fill: "#000000"}} yAxisId="weight" dataKey="weight" />

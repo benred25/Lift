@@ -8,6 +8,7 @@ import Friends from './components/Friends/Friends';
 import { getGoals } from "./actions/goals";
 import { getLifts } from "./actions/lifts";
 import useStyles from './styles';
+import {Paper} from "@mui/material";
 
 
 
@@ -27,23 +28,28 @@ const App = () => {
 
 
     return (
-        <Container maxWidth="xl">
+        <Container maxWidth="xxl">
             <AppBar className={classes.appBar} position="static" color="inherit">
                 <Typography className={classes.heading} variant="h2" align="center">Lift</Typography>
             </AppBar>
             <Grid container spacing={3} justifyContent="center">
                 <Grow in>
-                    <Grid item xs={5}>
+                    <Grid item xs={2}>
+                        <Paper>USERNAME</Paper>
+                    </Grid>
+                </Grow>
+                <Grow in>
+                    <Grid item xs={4}>
                         <Lifts setCurrentId={setCurrentLiftId} currentId={currentLiftId} />
                     </Grid>
                 </Grow>
                 <Grow in>
-                    <Grid item xs={3}>
+                    <Grid item xs={2}>
                         <Goals setCurrentId={setCurrentGoalId} currentId={currentGoalId} />
                     </Grid>
                 </Grow>
                 <Grow in>
-                    <Grid item xs={3}>
+                    <Grid item xs={2}>
                         <Friends />
                     </Grid>
                 </Grow>
