@@ -9,6 +9,6 @@ const userSchema = mongoose.Schema({
     current: Boolean,
 }, {timestamps: true});
 
-var User = mongoose.model("Lift", userSchema);
+var User = mongoose.model("User", userSchema);
 
 export default User;

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const goalsUrl = 'http://localhost:5000/goals';
 const liftsUrl = 'http://localhost:5000/lifts';
+const usersUrl = 'http://localhost:5000/users';
 
 export const fetchGoals = () => axios.get(goalsUrl);
 export const createGoal = (newGoal) => axios.post(goalsUrl, newGoal);
@@ -12,3 +13,5 @@ export const updateGoal = (id, updatedGoal) => axios.patch(`${goalsUrl}/${id}`, 
 export const fetchLifts = () => axios.get(liftsUrl);
 export const createLift = (newLift) => axios.post(liftsUrl, newLift);
 export const deleteLift = (id) => axios.delete(`${liftsUrl}/${id}`);
+
+export const fetchUsers = () => axios.get(usersUrl);

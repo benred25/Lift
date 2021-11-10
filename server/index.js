@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 
 import goalRoutes from './routes/goals.js';
 import liftRoutes from './routes/lifts.js';
+import userRoutes from './routes/users.js';
 
 const app = express();
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(cors());
 
 app.use('/goals', goalRoutes);
 app.use('/lifts', liftRoutes);
+app.use('/users', userRoutes);
 
 const PORT = process.env.PORT;
 
