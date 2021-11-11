@@ -5,10 +5,11 @@ import { useDispatch } from "react-redux";
 import Goals from './components/Goals/Goals';
 import Lifts from './components/Lifts/Lifts';
 import Friends from './components/Friends/Friends';
+import User from './components/User/User';
 import { getGoals } from "./actions/goals";
 import { getLifts } from "./actions/lifts";
+import { getUsers } from "./actions/users";
 import useStyles from './styles';
-import {Paper} from "@mui/material";
 
 
 
@@ -26,6 +27,10 @@ const App = () => {
         dispatch(getGoals());
     }, [currentGoalId, dispatch]);
 
+    useEffect(() => {
+        dispatch(getUsers());
+    }, [dispatch]);
+
 
     return (
         <Container maxWidth="xxl">
@@ -35,7 +40,7 @@ const App = () => {
             <Grid container spacing={3} justifyContent="center">
                 <Grow in>
                     <Grid item xs={2}>
-                        <Paper>USERNAME</Paper>
+                        <User />
                     </Grid>
                 </Grow>
                 <Grow in>

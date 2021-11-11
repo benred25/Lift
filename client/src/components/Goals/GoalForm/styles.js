@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, alpha } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
     root: {
@@ -8,6 +8,7 @@ export default makeStyles((theme) => ({
     },
     paper: {
         padding: theme.spacing(2),
+        background: alpha('#cba6a6', 0.9),
     },
     form: {
         display: 'flex',
