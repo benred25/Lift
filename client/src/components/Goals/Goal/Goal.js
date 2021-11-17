@@ -11,7 +11,6 @@ import {completeGoal, deleteGoal, getGoals} from "../../../actions/goals";
 const Goal = ({ goal, setCurrentId }) => {
     const dispatch = useDispatch();
     const classes = useStyles();
-    const checkbox = !goal.completed ? <Checkbox onClick={() => dispatch(completeGoal(goal._id))}/> : <Checkbox disabled checked/>
 
     return (
         <Card className={classes.card}>
@@ -27,7 +26,7 @@ const Goal = ({ goal, setCurrentId }) => {
             </div>
             <CardActions className={classes.cardActions}>
                 <Button size="small" color="secondary" onClick={() => dispatch(deleteGoal(goal._id))}><DeleteIcon fontSize="small" />&nbsp;Delete</Button>
-                <Typography variant="body2" color="primary" component="h2">Complete{checkbox}</Typography>
+                {!goal.completed ? <Button size="small" color="primary" onClick={() => dispatch(completeGoal(goal._id))}>Complete</Button> : <Button size="small" color="primary" disabled>Complete</Button>}
             </CardActions>
         </Card>
     )
