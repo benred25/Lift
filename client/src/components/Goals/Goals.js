@@ -7,13 +7,13 @@ import Goal from './Goal/Goal';
 import GoalForm from './GoalForm/GoalForm';
 import useStyles from './styles';
 
-const Goals = ({ currentId, setCurrentId }) => {
+const Goals = ({ userId, currentId, setCurrentId }) => {
     const goals = useSelector((state) => state.goals);
     const classes = useStyles();
 
     return (
         <Stack spacing={2} container alignItems="stretch">
-            <GoalForm setCurrentId={setCurrentId} currentId={currentId} />
+            <GoalForm userId={userId} setCurrentId={setCurrentId} currentId={currentId} />
             {goals.map((goal) => (
                 <Grid key={goal._id} item>
                     <Goal goal={goal} setCurrentId={setCurrentId} />

@@ -8,7 +8,7 @@ import LiftTable from "./LiftTable/LiftTable";
 import LiftGraph from "./LiftGraph/LiftGraph";
 import useStyles from './styles';
 
-const Lifts = ({ currentId, setCurrentId }) => {
+const Lifts = ({ userId, currentId, setCurrentId }) => {
     const lifts = useSelector((state) => state.lifts);
     const classes = useStyles();
     const liftTypes = ["Bench Press", "Deadlift", "Squat"];
@@ -16,7 +16,7 @@ const Lifts = ({ currentId, setCurrentId }) => {
 
     return (
         <Stack spacing={2} container alignItems="stretch">
-            <LiftForm setCurrentId={setCurrentId} currentId={currentId} />
+            <LiftForm userId={userId} setCurrentId={setCurrentId} currentId={currentId} />
             <LiftGraph lifts={lifts} liftName={currentLiftType}/>
             {liftTypes.map((name) => (
                 <LiftTable lifts={lifts} liftName={name} setCurrentLiftType={setCurrentLiftType}/>

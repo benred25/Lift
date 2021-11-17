@@ -15,3 +15,4 @@ export const createLift = (newLift) => axios.post(liftsUrl, newLift);
 export const deleteLift = (id) => axios.delete(`${liftsUrl}/${id}`);
 
 export const fetchUsers = () => axios.get(usersUrl);
+export const addPoints = (id) => axios.patch(`${usersUrl}/${id}/addPoints`);

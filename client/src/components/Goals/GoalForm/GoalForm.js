@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import useStyles from './styles';
 import {createGoal, updateGoal} from '../../../actions/goals';
+import {addPoints} from "../../../actions/users";
 
-const GoalForm = ({ currentId, setCurrentId }) => {
+const GoalForm = ({ userId, currentId, setCurrentId }) => {
     const [goalData, setGoalData] = useState({ exercise: '', sets: '', reps: '', weight: '' });
     const goal = useSelector((state) => (currentId ? state.goals.find((message) => message._id === currentId) : null));
     const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const GoalForm = ({ currentId, setCurrentId }) => {
 
         if (currentId === 0) {
             dispatch(createGoal(goalData));
+            dispatch(addPoints(userId));
         } else {
             dispatch(updateGoal(currentId, goalData));
         }

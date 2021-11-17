@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import useStyles from './styles';
 import {createLift} from '../../../actions/lifts';
+import {addPoints} from '../../../actions/users';
 
-const LiftForm = ({ currentId, setCurrentId }) => {
+const LiftForm = ({ userId, currentId, setCurrentId }) => {
     const [liftData, setLiftData] = useState({ exercise: '', sets: '', reps: '', weight: '' });
     const lift = useSelector((state) => (currentId ? state.lifts.find((message) => message._id === currentId) : null));
     const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const LiftForm = ({ currentId, setCurrentId }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        dispatch(addPoints(userId));
         dispatch(createLift(liftData));
         clear();
     };

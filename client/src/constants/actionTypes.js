@@ -10,3 +10,4 @@ export const DELETE_LIFT = 'DELETE_LIFT';
 
 export const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
 export const FETCH_CURRENT_USER = 'FETCH_CURRENT_USER';
+export const ADD_POINTS = 'ADD_POINTS';

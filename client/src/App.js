@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import Goals from './components/Goals/Goals';
 import Lifts from './components/Lifts/Lifts';
@@ -16,6 +16,7 @@ import useStyles from './styles';
 const App = () => {
     const [currentGoalId, setCurrentGoalId] = useState(0);
     const [currentLiftId, setCurrentLiftId] = useState(0);
+    const user = useSelector((state) => state.users).filter((user) => user.current)[0];
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -45,12 +46,12 @@ const App = () => {
                 </Grow>
                 <Grow in>
                     <Grid item xs={4}>
-                        <Lifts setCurrentId={setCurrentLiftId} currentId={currentLiftId} />
+                        <Lifts userId={user._id} setCurrentId={setCurrentLiftId} currentId={currentLiftId} />
                     </Grid>
                 </Grow>
                 <Grow in>
                     <Grid item xs={2}>
-                        <Goals setCurrentId={setCurrentGoalId} currentId={currentGoalId} />
+                        <Goals userId={user._id} setCurrentId={setCurrentGoalId} currentId={currentGoalId} />
                     </Grid>
                 </Grow>
                 <Grow in>
