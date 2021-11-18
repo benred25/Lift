@@ -16,9 +16,10 @@ export const getUsers = async (req, res) => {
 
 export const addPoints = async (req, res) => {
     const { id } = req.params;
+    const points = req.body.points;
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No user with id: ${id}`);
     const user = await User.findById(id);
-    const updatedUser = await User.findByIdAndUpdate(id, { points: user.points + 100 }, { new: true });
+    const updatedUser = await User.findByIdAndUpdate(id, { points: user.points + points }, { new: true });
     res.json(updatedUser);
 }
 

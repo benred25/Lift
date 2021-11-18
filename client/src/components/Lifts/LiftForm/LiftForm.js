@@ -24,7 +24,7 @@ const LiftForm = ({ userId, currentId, setCurrentId }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        dispatch(addPoints(userId));
+        dispatch(addPoints(userId, 100));
         dispatch(createLift(liftData));
         clear();
     };

@@ -26,7 +26,7 @@ const GoalForm = ({ userId, currentId, setCurrentId }) => {
 
         if (currentId === 0) {
             dispatch(createGoal(goalData));
-            dispatch(addPoints(userId));
+            dispatch(addPoints(userId, 100));
         } else {
             dispatch(updateGoal(currentId, goalData));
         }

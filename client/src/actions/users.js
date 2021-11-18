@@ -11,9 +11,9 @@ export const getUsers = () => async (dispatch) => {
     }
 };
 
-export const addPoints = (id) => async (dispatch) => {
+export const addPoints = (id, points) => async (dispatch) => {
     try {
-        const { data } = await api.addPoints(id);
+        const { data } = await api.addPoints(id, points);
         dispatch({ type: ADD_POINTS, payload: data });
     } catch (error) {
         console.log(error);

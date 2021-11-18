@@ -7,8 +7,9 @@ import { useDispatch } from 'react-redux';
 
 import useStyles from './styles';
 import {completeGoal, deleteGoal, getGoals} from "../../../actions/goals";
+import { addPoints } from "../../../actions/users";
 
-const Goal = ({ goal, setCurrentId }) => {
+const Goal = ({ userId, goal, setCurrentId }) => {
     const dispatch = useDispatch();
     const classes = useStyles();
 

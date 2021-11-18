@@ -31,7 +31,7 @@ const Goals = ({ userId, currentId, setCurrentId }) => {
             </Card>
             {goals.filter((goal) => goal.completed).map((goal) => (
                 <Grid key={goal._id} item>
-                    <Goal goal={goal} setCurrentId={setCurrentId} />
+                    <Goal userId={userId} goal={goal} setCurrentId={setCurrentId} />
                 </Grid>
             ))}
         </Stack>
