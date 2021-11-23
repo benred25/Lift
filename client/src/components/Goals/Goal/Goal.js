@@ -27,7 +27,11 @@ const Goal = ({ userId, goal, setCurrentId }) => {
             </div>
             <CardActions className={classes.cardActions}>
                 <Button size="small" color="secondary" onClick={() => dispatch(deleteGoal(goal._id))}><DeleteIcon fontSize="small" />&nbsp;Delete</Button>
-                {!goal.completed ? <Button size="small" color="primary" onClick={() => dispatch(completeGoal(goal._id))}>Complete</Button> : <Button size="small" color="primary" disabled>Complete</Button>}
+                {!goal.completed ? <Button size="small" color="primary"  variant="contained" onClick={() => {
+                    dispatch(addPoints(userId, 1000));
+                    dispatch(completeGoal(goal._id));
+                }}>Complete</Button> :
+                    <Button size="small" color="primary" disabled>Complete</Button>}
             </CardActions>
         </Card>
     )
